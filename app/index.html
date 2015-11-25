@@ -39,24 +39,27 @@
       </div>
 
       <div class="jumbotron">
-        <h3>Weather in [location] is currently [condition]</h3>
-        <br \>
+        <h3>Weather in Tokyo is currently cloudy</h3>
         <div class="container">
           <div class="row">
-            <div class="col-sm-6">
-              <p>[icon]</p>
+            <div class="col-sm-6 vertical-divider">
+              <p class="icon"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></p>
             </div>
             <div class="col-sm-6">
-              <ul>
-                <li>Temperature: [##]</li>
-                <li>Wind: [##]</li>
-                <li>Direction: [##]</li>
-                <li>Humidity: [##]</li>
-              </ul>
+              <dl class="dl-horizontal">
+                <dt>Temp.</dt>
+                <dd>99 F</dd>
+                <dt>Wind</dt>
+                <dd>30 kn/s</dd>
+                <dt>Direction</dt>
+                <dd>South</dd>
+                <dt>Humidity</dt>
+                <dd>60%</dd>
+            </dl>
             </div>
           </div>
         </div>
-        <p><a class="btn btn-lg btn-success" href="#">See it in &#8451; or &#8457; </a></p>
+        <p class="convert"><a class="btn btn-lg btn-success" href="#">See it in &#8451; or &#8457; </a></p>
       </div>
 
       <div class="footer">
