@@ -39,6 +39,6 @@ function showWeather( data ){
 	$(".humidity").text(data.main.humidity +  $("<div/>").html("&#37;").text());
 	$(".wind").text(data.wind.speed + " m/s");
 	$(".direction").text(data.wind.deg + String.fromCharCode(160) + $("<div/>").html("&deg;").text());
-	$(".icon > i").addClass("owf-" + data.cod.toString());
+	$(".icon > i").addClass("owf-" + data.weather[0].id.toString());
+	$("body").css("background-image","url(\"images/" + Math.floor(Number(data.weather[0].id)/100) + ".jpg\")");
 }
-
