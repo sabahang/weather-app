@@ -4,11 +4,24 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
+
+.effect-outline *{
+text-shadow:0 1px 1px #000,0 -1px 1px #000,1px 0 1px #000,-1px 0 1px #000;color:#fff;}
+
+body{
+  font-family: 'Caveat Brush', cursive;
+  background-image: url("../images/cloudy.jpg");
+  background-size: cover;
+  font-size: 20px;
+}
 .convert{
   padding-top: 20px;
 }
 .vertical-divider{
   border-right: 1px solid #ccc;
+}
+.nav {
+  font-size: 16px;
 }
 .row {
     margin-left: auto;
@@ -58,13 +71,14 @@ body {
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 19px;
+    color: black;
   }
 }
 
 /* Custom page footer */
 .footer {
   padding-top: 19px;
-  color: #777;
+  color: black;
   border-top: 1px solid #e5e5e5;
 }
 

@@ -1,4 +1,4 @@
-//getCurrentLocation();
+getCurrentLocation();
 
 function getCurrentLocation(){
 	var options = {
@@ -24,7 +24,7 @@ function getCurrentLocation(){
 }
 function getWeather(lat,lon){
 	var url = "http://api.openweathermap.org/data/2.5/weather?\
-	lat=" + lat + "&lon=" + lon + "&appid=1d8f6820c9fd96687cefdf7bd7cfa826";
+	lat=" + lat + "&lon=" + lon + "&units=metric&appid=1d8f6820c9fd96687cefdf7bd7cfa826";
 	$.getJSON( url, function( data ) {
 /*		var items = [];
 		$.each( data, function( key, val ) {
@@ -34,6 +34,11 @@ function getWeather(lat,lon){
 });
 }
 function showWeather( data ){
-	console.log(data.name);
+	$(".condition").text("Weather condition in " + data.name + " is: " + data.weather[0].description);
+	$(".temp").text(data.main.temp + String.fromCharCode(160) + $("<div/>").html("&deg;").text() + "C");
+	$(".humidity").text(data.main.humidity +  $("<div/>").html("&#37;").text());
+	$(".wind").text(data.wind.speed + " m/s");
+	$(".direction").text(data.wind.deg + String.fromCharCode(160) + $("<div/>").html("&deg;").text());
+	$(".icon > i").addClass("owf-" + data.cod.toString());
 }
 
