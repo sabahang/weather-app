@@ -1,3 +1,15 @@
+$(".convert .btn").click(function() {
+	var btn = $(".convert .btn");
+	if (btn.attr('data-unit') === "metric"){
+		btn.attr('data-unit', 'imperial');
+		btn.text('In Metric');
+		getCurrentLocation();
+	} else {
+		btn.attr('data-unit', 'metric');
+		btn.text('In Imperial');
+		getCurrentLocation();
+	}
+});
 getCurrentLocation();
 
 function getCurrentLocation(){
@@ -6,39 +18,48 @@ function getCurrentLocation(){
 		timeout: 5000,
 		maximumAge: 0
 	};
-
 	function success(pos) {
-		getWeather(pos.coords.latitude, pos.coords.longitude);
-	   // var lat = coords.latitude;
-	   // console.log(lat);
-	  // lon = crd.longitude;
-	  // console.log(lon);
-	  //console.log('More or less ' + crd.accuracy + ' meters.');
+		var unit = $(".convert .btn").attr('data-unit');
+		getWeather(pos.coords.latitude, pos.coords.longitude, unit);
 	};
-
 	function error(err) {
 		console.warn('ERROR(' + err.code + '): ' + err.message);
+		console.log("Falling back to IP based geolocation...");
+		getLocationByIP();
 	};
-
 	navigator.geolocation.getCurrentPosition(success, error, options);
 }
-function getWeather(lat,lon){
+function getWeather(lat,lon,unit){
 	var url = "http://api.openweathermap.org/data/2.5/weather?\
-	lat=" + lat + "&lon=" + lon + "&units=metric&appid=1d8f6820c9fd96687cefdf7bd7cfa826";
+	lat=" + lat + "&lon=" + lon + "&units=" + unit + "&appid=1d8f6820c9fd96687cefdf7bd7cfa826";
 	$.getJSON( url, function( data ) {
-/*		var items = [];
-		$.each( data, function( key, val ) {
-			items.push( "<li id='" + key + "'>" + val + "</li>" );
-		});*/
-	showWeather(data);
-});
+		showWeather(data);
+	});
 }
 function showWeather( data ){
-	$(".condition").text("Weather condition in " + data.name + " is: " + data.weather[0].description);
-	$(".temp").text(data.main.temp + String.fromCharCode(160) + $("<div/>").html("&deg;").text() + "C");
+	var hr = (new Date()).getHours();
+	var currUnit = $(".convert .btn").attr('data-unit');
+	$(".condition").text("Weather in " + data.name + " is with " + data.weather[0].description);
+	$(".temp").text(data.main.temp + String.fromCharCode(160) + $("<div/>").html("&deg;").text() + ( currUnit === "metric" ? "C" : "F"));
 	$(".humidity").text(data.main.humidity +  $("<div/>").html("&#37;").text());
-	$(".wind").text(data.wind.speed + " m/s");
+	$(".wind").text(data.wind.speed + String.fromCharCode(160) + ( currUnit === "metric" ? "m/s" : "M.P.H"));
 	$(".direction").text(data.wind.deg + String.fromCharCode(160) + $("<div/>").html("&deg;").text());
-	$(".icon > i").addClass("owf-" + data.weather[0].id.toString());
+	$(".icon > i").addClass("owf-" + data.weather[0].id.toString() + (isNight(data) ? "-n" : ""));
 	$("body").css("background-image","url(\"images/" + Math.floor(Number(data.weather[0].id)/100) + ".jpg\")");
 }
+function isNight(data){
+	var sunrise = new Date(Number(data.sys.sunrise) * 1000).getHours(); // in millisec
+	var sunset = new Date(Number(data.sys.sunset) * 1000).getHours(); //in millisec
+	var time = new Date().getHours();
+	if (time >= sunset || time <= sunrise) return true; else return false;
+}
+function getLocationByIP(){
+	var unit = $(".convert .btn").attr('data-unit');
+	$.getJSON('//freegeoip.net/json/', function(location) {
+    	getWeather(location.latitude, location.longitude, unit);
+	})
+	.error(function(err) { console.warn('ERROR(' + err.code + '): ' + err.message); 
+		console.log("Both HTML5 and IP Based geolocationing has failed!") 
+	});
+}
+
