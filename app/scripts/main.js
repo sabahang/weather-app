@@ -41,12 +41,16 @@ function showWeather( data ){
 	var currUnit = $(".convert .btn").attr('data-unit');
 	$(".condition").text("Weather in " + data.name + " is with " + data.weather[0].description);
 	// $(".temp").text(data.main.temp + String.fromCharCode(160) + $("<div/>").html("&deg;").text() + ( currUnit === "metric" ? "C" : "F"));
-	$(".owf").attr("data-content", data.main.temp + $("<div/>").html("&deg;").text() + ( currUnit === "metric" ? "C" : "F"));
+	$(".owf").attr("data-content", Math.round(Number(data.main.temp)) + $("<div/>").html("&deg;").text() + ( currUnit === "metric" ? "C" : "F"));
 	$(".humidity").text(data.main.humidity +  $("<div/>").html("&#37;").text());
 	$(".wind").text(data.wind.speed + String.fromCharCode(160) + ( currUnit === "metric" ? "m/s" : "mph"));
-	$(".direction").text(data.wind.deg + String.fromCharCode(160) + $("<div/>").html("&deg;").text());
+	$(".direction").text(direction(Number(data.wind.deg)));
 	$(".icon > i").addClass("owf-" + data.weather[0].id.toString() + (isNight(data) ? "-n" : ""));
 	$("body").css("background-image","url(\"images/" + Math.floor(Number(data.weather[0].id)/100) + ".jpg\")");
+}
+function direction(val){
+  var directions = ["North", "Northeast", "East", "Southeast", "South", "Southwest", "West", "Northwest"];
+  return directions[ Math.floor(((val % 360) / 45)) ];
 }
 function isNight(data){
 	var sunrise = new Date(Number(data.sys.sunrise) * 1000).getHours(); // in millisec

@@ -34,6 +34,9 @@ body{
   background-size: cover;
   font-size: 20px;
 }
+#about {
+  font-size: 0.7em;
+}
 .nav > li > a:hover, .nav > li > a:focus {
   background-color: rgba(54, 57, 59, 0.74);
 }
@@ -42,8 +45,8 @@ body{
     font-family: 'Unica One', cursive;
     content: attr(data-content);
     position: absolute;
-    top: 72px;
-    left: 5px;
+    top: 66px;
+    left: 29px;
 }
 .convert{
   padding-top: 20px;
