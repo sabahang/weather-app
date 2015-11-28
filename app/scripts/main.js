@@ -2,11 +2,11 @@ $(".convert .btn").click(function() {
 	var btn = $(".convert .btn");
 	if (btn.attr('data-unit') === "metric"){
 		btn.attr('data-unit', 'imperial');
-		btn.text('In Metric');
+		btn.text('Metric');
 		getCurrentLocation();
 	} else {
 		btn.attr('data-unit', 'metric');
-		btn.text('In Imperial');
+		btn.text('Imperial');
 		getCurrentLocation();
 	}
 });
@@ -40,9 +40,10 @@ function showWeather( data ){
 	var hr = (new Date()).getHours();
 	var currUnit = $(".convert .btn").attr('data-unit');
 	$(".condition").text("Weather in " + data.name + " is with " + data.weather[0].description);
-	$(".temp").text(data.main.temp + String.fromCharCode(160) + $("<div/>").html("&deg;").text() + ( currUnit === "metric" ? "C" : "F"));
+	// $(".temp").text(data.main.temp + String.fromCharCode(160) + $("<div/>").html("&deg;").text() + ( currUnit === "metric" ? "C" : "F"));
+	$(".owf").attr("data-content", data.main.temp + $("<div/>").html("&deg;").text() + ( currUnit === "metric" ? "C" : "F"));
 	$(".humidity").text(data.main.humidity +  $("<div/>").html("&#37;").text());
-	$(".wind").text(data.wind.speed + String.fromCharCode(160) + ( currUnit === "metric" ? "m/s" : "M.P.H"));
+	$(".wind").text(data.wind.speed + String.fromCharCode(160) + ( currUnit === "metric" ? "m/s" : "mph"));
 	$(".direction").text(data.wind.deg + String.fromCharCode(160) + $("<div/>").html("&deg;").text());
 	$(".icon > i").addClass("owf-" + data.weather[0].id.toString() + (isNight(data) ? "-n" : ""));
 	$("body").css("background-image","url(\"images/" + Math.floor(Number(data.weather[0].id)/100) + ".jpg\")");

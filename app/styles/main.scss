@@ -5,13 +5,32 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-.effect-outline *{
-text-shadow:0 1px 1px #000,0 -1px 1px #000,1px 0 1px #000,-1px 0 1px #000;color:#fff;}
+.effect-outline {
+  text-shadow:0 1px 1px #000,0 -1px 1px #000,1px 0 1px #000,-1px 0 1px #000;color:#fff;
+}
+.effect-neon {
+  //text-shadow:0 0 .1em #fff,0 0 .2em #fff,0 0 .3em #fff,0 0 .4em #f7f,0 0 .6em #f0f,0 0 .8em #f0f,0 0 1em #f0f,0 0 1.2em #f0f;
+  text-shadow: 0 0 .1em #286090,0 0 1.2em #286090,0 0 1.3em #fcf8e3,0 0 1.4em #286090,0 0 0.6em #286090,0 0 2.8em #286090,0 0 1em #5BA2DE,0 0 4.2em #286090;
+  color:#fff;
+}
 
+@media(max-width:767px){
+  .vertical-divider{
+    border: none !important;
+  }
+}
 body{
-  font-family: 'Caveat Brush', cursive;
+  font-family: 'Unica One', cursive;
   background-size: cover;
   font-size: 20px;
+}
+.owf:after {
+    font-size: 30px;
+    font-family: 'Unica One', cursive;
+    content: attr(data-content);
+    position: absolute;
+    top: 72px;
+    left: 5px;
 }
 .convert{
   padding-top: 20px;
@@ -22,17 +41,17 @@ body{
 .nav {
   font-size: 16px;
 }
-.row {
+/* .row {
     margin-left: auto;
     margin-right: auto;
     display: table;
-} 
-.row > div  {
+}  */
+/* .row > div  {
     float: none;
     display: table-cell;
     vertical-align: middle;
-    padding: 0 20px;
-}
+    width: 50%;
+} */
 
 p.icon {
   font-size:80px;

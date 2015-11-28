@@ -5,7 +5,7 @@
     <title>Weather App</title>
     <meta name="description" content="This is a weather app">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Caveat+Brush' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Unica+One' rel='stylesheet' type='text/css'>
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -40,29 +40,27 @@
         <h3 class="text-muted">Weather</h3>
       </div>
 
-      <div class="jumbotron effect-outline">
+      <div class="jumbotron effect-neon">
         <h3 class="condition">Weather loading...</h3>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 vertical-divider">
-            <!-- courtesy of http://websygen.github.io/ -->
-              <p class="icon"><i class="owf owf-lg"></i></span></p>
-            </div>
-            <div class="col-sm-6">
-              <dl class="dl-horizontal">
-                <dt>Temp.</dt>
-                <dd class="temp">--</dd>
-                <dt>Wind Speed</dt>
-                <dd class="wind">--</dd>
-                <dt>Direction</dt>
-                <dd class="direction">--</dd>
-                <dt>Humidity</dt>
-                <dd class="humidity">--</dd>
+        <div class="row">
+          <div class="col-sm-6 vertical-divider">
+          <!-- courtesy of http://websygen.github.io/ -->
+            <p class="icon"><i class="owf owf-lg"></i></p>
+          </div>
+          <div class="col-sm-6">
+            <dl class="dl-horizontal">
+<!--                 <dt>Temp.</dt>
+              <dd class="temp">--</dd> -->
+              <dt>Wind Speed</dt>
+              <dd class="wind">--</dd>
+              <dt>Direction</dt>
+              <dd class="direction">--</dd>
+              <dt>Humidity</dt>
+              <dd class="humidity">--</dd>
             </dl>
-            </div>
           </div>
         </div>
-        <p class="convert"><a data-unit="metric" class="btn btn-lg btn-success" href="#">In Imperial</a></p>
+        <p class="convert"><a data-unit="metric" class="btn btn-lg btn-success" href="#">Imperial</a></p>
       </div>
 
       <div class="footer">
