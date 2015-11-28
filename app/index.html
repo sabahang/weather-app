@@ -33,24 +33,21 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a class="btn btn-sm btn-success" href="#about" role="button" data-toggle="modal">About</a></li>
+          <li><a class="btn btn-sm btn-success" href="http://sabahang.github.io/">Contact</a></li>
+
         </ul>
-        <h3 class="text-muted">Weather</h3>
+        <h3 class="effect-outline">Weather</h3>
       </div>
 
       <div class="jumbotron effect-neon">
         <h3 class="condition">Weather loading...</h3>
         <div class="row">
           <div class="col-sm-6 vertical-divider">
-          <!-- courtesy of http://websygen.github.io/ -->
             <p class="icon"><i class="owf owf-lg"></i></p>
           </div>
           <div class="col-sm-6">
             <dl class="dl-horizontal">
-<!--                 <dt>Temp.</dt>
-              <dd class="temp">--</dd> -->
               <dt>Wind Speed</dt>
               <dd class="wind">--</dd>
               <dt>Direction</dt>
@@ -63,11 +60,33 @@
         <p class="convert"><a data-unit="metric" class="btn btn-lg btn-success" href="#">Imperial</a></p>
       </div>
 
-      <div class="footer">
+      <div class="footer effect-outline">
         <p>sabahang 2015, copyright reserved.</p>
       </div>
     </div>
     
+    <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">About Weather App</h4>
+        </div>
+        <div class="modal-body">
+          This app was made as a part of Free Code Camp full-stack developer curriculum which is a free self-paced online bootcamp. More info at <a href="http://www.freecodecamp.com">www.freecodecamp.com</a>. <br>
+          You can check my profile at <a href="http://www.freecodecamp.com/sabahang">freecodecamp.com/sabahang</a>
+          <br>
+          <br>
+          This project was completed using Bootstrap, Jquery, Open Weather API, <a href="http://websygen.github.io/owfont/">OwFont icons</a> and <a href="http://freegeoip.net/">Free Geo IP</a>. Yeoman, Grunt and Bower were used to setup the project.
+          <br> 
+          Last update: 28 November 2015
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -77,18 +96,9 @@
 
     
     <!-- build:js(.) scripts/plugins.js -->
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+
     <!-- endbuild -->
     
 

@@ -6,12 +6,22 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 // endbower
 
 .effect-outline {
-  text-shadow:0 1px 1px #000,0 -1px 1px #000,1px 0 1px #000,-1px 0 1px #000;color:#fff;
+  text-shadow:0 1px 1px #000,0 -1px 1px #000,1px 0 1px #000,-1px 0 1px #000;
+  color:#fff;
 }
 .effect-neon {
   //text-shadow:0 0 .1em #fff,0 0 .2em #fff,0 0 .3em #fff,0 0 .4em #f7f,0 0 .6em #f0f,0 0 .8em #f0f,0 0 1em #f0f,0 0 1.2em #f0f;
-  text-shadow: 0 0 .1em #286090,0 0 1.2em #286090,0 0 1.3em #fcf8e3,0 0 1.4em #286090,0 0 0.6em #286090,0 0 2.8em #286090,0 0 1em #5BA2DE,0 0 4.2em #286090;
+  //text-shadow: 0 0 .1em #286090,0 0 1.2em #286090,0 0 1.3em #fcf8e3,0 0 1.4em #286090,0 0 0.6em #286090,0 0 2.8em #286090,0 0 1em #5BA2DE,0 0 4.2em #286090;
   color:#fff;
+
+//background-color: rgb(163, 180, 247);
+  text-shadow: #31475A 0px 0px 133px, #2D475D 0px 0px 110px;
+}
+.menu {
+  text-shadow:0 1px 1px #000,0 -1px 1px #000,1px 0 1px #000,-1px 0 1px #000;
+}
+.dl-horizontal dt {
+  overflow: visible;
 }
 
 @media(max-width:767px){
@@ -23,6 +33,9 @@ body{
   font-family: 'Unica One', cursive;
   background-size: cover;
   font-size: 20px;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: rgba(54, 57, 59, 0.74);
 }
 .owf:after {
     font-size: 30px;
@@ -41,17 +54,9 @@ body{
 .nav {
   font-size: 16px;
 }
-/* .row {
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-}  */
-/* .row > div  {
-    float: none;
-    display: table-cell;
-    vertical-align: middle;
-    width: 50%;
-} */
+.container {
+  min-width: 300px;
+}
 
 p.icon {
   font-size:80px;
@@ -89,14 +94,12 @@ body {
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 19px;
-    color: black;
   }
 }
 
 /* Custom page footer */
 .footer {
   padding-top: 19px;
-  color: black;
   border-top: 1px solid #e5e5e5;
 }
 
@@ -111,6 +114,7 @@ body {
   .btn {
     font-size: 21px;
     padding: 24px 24px;
+    text-shadow: none;
   }
   h3 {
     margin-bottom: 35px;
